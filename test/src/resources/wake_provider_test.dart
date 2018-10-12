@@ -18,4 +18,18 @@ void main() {
     ItemModel itemModel = _data[0];
     expect(itemModel.type, 'Feature');
   });
+
+  test('Fetch feature return null', () async {
+    final wakeApi = WakeProvider();
+    wakeApi.client = MockClient((request) async {
+      return Response(json.encode(''), 404);
+    });
+    
+    try {
+     wakeApi.fetchFeatures();
+    } on NullThrownError catch(e) {
+      expect(e.toString(), 'Throw of null.');
+    }
+  });
+
 }
