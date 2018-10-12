@@ -10,7 +10,7 @@ void main() {
     final wakeApi = WakeProvider();
 
     wakeApi.client = MockClient((request) async {
-      final jsonMap = {'features' : [{'type' : 'Feature', 'properties' : {}, 'geometry' : {}, 'id' : ''}]};
+      final jsonMap = {'features' : [{'type' : 'Feature', 'properties' : {'mag': 1.2}, 'geometry' : {}, 'id' : ''}]};
       return Response(json.encode(jsonMap), 200);
     });
 

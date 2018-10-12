@@ -8,7 +8,8 @@ class ItemModel {
 
   ItemModel.fromJson(Map<String,dynamic> parsedJson): 
     type = parsedJson['type'],
-    properties = Properties.fromJson(parsedJson['properties']),
     geometry = Geometry.fromJson(parsedJson['geometry']),
-    id = parsedJson['id'];
+    id = parsedJson['id'],
+    properties = Properties.fromJson(parsedJson['properties']);
+    
 }

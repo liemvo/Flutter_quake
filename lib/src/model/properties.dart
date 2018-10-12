@@ -15,16 +15,15 @@ class Properties {
   final String sources;
   final String types;
   final int nst;
-  final double dmin;
-  final int gap;
   final String mapType;
   final String type;
   final String title;
 
-  Properties.fromJson(Map<String,dynamic> parsedJson) : mag = parsedJson['mag'],
+  Properties.fromJson(Map<String,dynamic> parsedJson)
+   :  mag = double.parse(parsedJson['mag'].toString()),
     place = parsedJson['place'],
     time = parsedJson['time'],
-    updated = parsedJson['updated'],
+    updated = parsedJson["updated"],
     tz = parsedJson['tz'],
     url = parsedJson['url'],
     detail = parsedJson['detail'],
@@ -37,8 +36,6 @@ class Properties {
     sources = parsedJson['sources'],
     types = parsedJson['types'],
     nst = parsedJson['nst'],
-    dmin = parsedJson['dmin'],
-    gap = parsedJson['gap'],
     mapType = parsedJson['mapType'],
     type = parsedJson['type'],
     title = parsedJson['title'];

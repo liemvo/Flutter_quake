@@ -16,8 +16,11 @@ class _HomePageState extends State<HomePage> {
     _loadData();
   }
 
-  _loadData() async{
-    _data = await WakeProvider().fetchFeatures();
+  _loadData() async {
+    List _newData  = await WakeProvider().fetchFeatures();
+    setState(() {
+      _data = _newData;
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             ),
             body: Center(
                 child: ListView.builder(
-                    itemCount: _data.length,
+                    itemCount: _data!= null? _data.length : 0,
                     padding: const EdgeInsets.all(10.0),
                     itemBuilder: (BuildContext context, int position) {
                       ItemModel itemModel = _data[position];
